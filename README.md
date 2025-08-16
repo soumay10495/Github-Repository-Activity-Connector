@@ -25,7 +25,6 @@ Requirements:
 SOLUTION
 
 A Spring Boot application has been created to accomplish the problem at hand. Once the server is up and running,
-
 the application can be accessed at http://localhost:8080/. The username needs to be input in the text box and 
 after clicking button "Fetch Commit Info", the requested information will be displayed in JSON format.
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub Connector</title>
+    <script>
+        function callApi() {
+            const username = document.getElementById("username").value;
+            fetch('/api/github/activity?username=' + username, {
+                method: 'GET'
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("result").innerText = JSON.stringify(JSON.parse(data), null, 4);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById("result").innerText = "Error occurred";
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1 th:text="${message}">Placeholder</h1>
+    <input type="text" id="username" placeholder="Enter username" />
+    <br><br>
+    <button onclick="callApi()">Fetch Commit Info</button>
+    <p id="result"></p>
+</body>
+</html>
